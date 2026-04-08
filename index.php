@@ -93,7 +93,7 @@
                 value="<?= htmlspecialchars($_GET["search"] ?? "") ?>"
               >
               <input
-                class="px-4 py-2 rounded-md bg-blue-500 text-white"
+                class="cursor-pointer px-4 py-2 rounded-md bg-blue-500 text-white"
                 type="submit" 
                 value="Search"
               >
