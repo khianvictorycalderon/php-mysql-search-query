@@ -59,7 +59,21 @@
         <div class="flex flex-col gap-2 text-center">
             <h2 class="text-4xl font-bold text-center">PHP + MySQL Search Query</h2>
 
-            <?php if ($users) { ?>
+            <?php if (is_string($users)) { ?>
+
+              <!-- ❌ Query error -->
+              <h2 class="text-red-500"><?= $users ?></h2>
+
+            <?php } elseif (!empty($users)) { ?>
+
+              <!-- 🔍 Show search label if searching -->
+              <?php if (!empty($_GET["search"])) { ?>
+                <p class="text-sm text-neutral-600 mb-2">
+                  Showing results for 
+                  "<strong><?= htmlspecialchars($_GET["search"]) ?></strong>"
+                </p>
+              <?php } ?>
+
               <table>
                 <thead>
                   <tr>
@@ -78,10 +92,26 @@
                   <?php } ?>
                 </tbody>
               </table>
+
             <?php } else { ?>
-              <h2 class="text-lg font-semibold">
-                No user/results found
-              </h2>
+
+              <?php if (!empty($_GET["search"])) { ?>
+
+                <!-- 🔍 No results from search -->
+                <h2 class="text-lg font-semibold">
+                  No results found for 
+                  "<strong><?= htmlspecialchars($_GET["search"]) ?></strong>"
+                </h2>
+
+              <?php } else { ?>
+
+                <!-- 📭 Empty database -->
+                <h2 class="text-lg font-semibold">
+                  No users in the database
+                </h2>
+
+              <?php } ?>
+
             <?php } ?>
 
             <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
