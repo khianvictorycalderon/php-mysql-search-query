@@ -10,7 +10,19 @@ How to use your project
 3. Start Apache and MySQL from XAMPP control panel.
 4. Go to your phpmyadmin panel and run this MySQL query:
     ```sql
-    -- SQL Query here...
+    CREATE TABLE sample_users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(200) NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        address TEXT
+    );
+
+    INSERT INTO sample_users (name, email, address) VALUES
+        ('Jake', 'jake@email.com',  NULL),
+        ('John', 'john@email.com', 'New York'),
+        ('Mark', 'mark@email.com', 'St. Jude'),
+        ('Bob', 'bob@email.com', NULL),
+        ('Nate', 'nate@email.com', 'X St. Sta. Lucia');
     ```
 5. Go to your browser and run `localhost/<your-repo-name>`
 6. Enjoy!
