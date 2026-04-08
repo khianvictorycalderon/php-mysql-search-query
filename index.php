@@ -7,6 +7,21 @@
 
   if (isset($_GET["search"])) {
 
+    $search = "%" . $_GET["search"] . "%";
+
+    // Tries to search the database
+    $users = transactionalMySQLQuery("
+      SELECT
+        name,
+        email,
+        address
+      FROM sample_users
+      WHERE
+        name LIKE ?
+        OR email LIKE ?
+        OR address LIKE ?
+    ", [$search, $search, $search]);
+
   } else {
     // Fetch all normally in the database
     $users = transactionalMySQLQuery("
