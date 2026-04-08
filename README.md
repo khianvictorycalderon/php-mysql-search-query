@@ -1,8 +1,9 @@
-# Title of your Project
-Description of your project, and purpose.
+# PHP + MySQL Search Query
+Simple search query within the database.
 
-## Usage
-How to use your project
+## Previews
+![Preview 1](preview_1.png)
+![Preview 2](preview_2.png)
 
 ## Setup
 1. Go to you XAMPP htdocs directory (usually in `C:\xampp\htdocs`, depending on where you installed your XAMPP)
