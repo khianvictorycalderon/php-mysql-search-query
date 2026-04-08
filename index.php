@@ -59,24 +59,30 @@
         <div class="flex flex-col gap-2 text-center">
             <h2 class="text-4xl font-bold text-center">PHP + MySQL Search Query</h2>
 
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($users as $user) { ?>
+            <?php if ($users) { ?>
+              <table>
+                <thead>
                   <tr>
-                    <td><?= $user["name"]; ?></td>
-                    <td><?= $user["email"]; ?></td>
-                    <td><?= $user["address"] ?? "-----"; ?></td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
                   </tr>
-                <?php } ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php foreach ($users as $user) { ?>
+                    <tr>
+                      <td><?= $user["name"]; ?></td>
+                      <td><?= $user["email"]; ?></td>
+                      <td><?= $user["address"] ?? "-----"; ?></td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            <?php } else { ?>
+              <h2 class="text-lg font-semibold">
+                No user/results found
+              </h2>
+            <?php } ?>
 
             <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="GET">
               <input
