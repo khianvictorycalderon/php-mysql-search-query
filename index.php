@@ -84,6 +84,7 @@
                 class="bg-neutral-200 p-2 rounded-md mt-4"
                 type="text"
                 placeholder="Search name, email, or address..."
+                value="<?= htmlspecialchars($_GET["search"] ?? "") ?>"
               >
               <input
                 class="px-4 py-2 rounded-md bg-blue-500 text-white"
