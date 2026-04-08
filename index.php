@@ -3,10 +3,7 @@
   // For database credentials and useful functions
   require_once("api/db.php");
 
-  $users[] = [];
-
   if (isset($_GET["search"])) {
-
     $search = "%" . $_GET["search"] . "%";
 
     // Tries to search the database
