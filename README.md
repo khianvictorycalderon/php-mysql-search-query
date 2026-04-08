@@ -25,7 +25,7 @@ Simple search query within the database.
         ('Bob', 'bob@email.com', NULL),
         ('Nate', 'nate@email.com', 'X St. Sta. Lucia');
     ```
-5. Go to your browser and run `localhost/<your-repo-name>`
+5. Go to your browser and run `localhost/php-mysql-search-query`
 6. Enjoy!
 
 ---
