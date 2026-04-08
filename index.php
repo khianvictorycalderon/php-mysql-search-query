@@ -3,7 +3,7 @@
   // For database credentials and useful functions
   require_once("api/db.php");
 
-  if (isset($_GET["search"])) {
+  if (isset($_GET["search"]) && trim($_GET["search"]) !== "") {
     $search = "%" . $_GET["search"] . "%";
 
     // Tries to search the database
