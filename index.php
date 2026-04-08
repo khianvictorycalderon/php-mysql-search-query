@@ -3,14 +3,20 @@
   // For database credentials and useful functions
   require_once("api/db.php");
 
-  // Fetched the data from databse:
-  $users = transactionalMySQLQuery("
-    SELECT
-      name,
-      email,
-      address
-    FROM sample_users
-  ", []);
+  $users[] = [];
+
+  if (isset($_GET["search"])) {
+
+  } else {
+    // Fetch all normally in the database
+    $users = transactionalMySQLQuery("
+      SELECT
+        name,
+        email,
+        address
+      FROM sample_users
+    ");
+  }
   
 ?>
 
