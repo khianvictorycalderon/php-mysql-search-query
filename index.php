@@ -2,6 +2,15 @@
 
   // For database credentials and useful functions
   require_once("api/db.php");
+
+  // Fetched the data from databse:
+  $users = transactionalMySQLQuery("
+    SELECT
+      name,
+      email,
+      address
+    FROM sample_users
+  ", []);
   
 ?>
 
@@ -31,6 +40,26 @@
         
         <div class="flex flex-col gap-2 text-center">
             <h2 class="text-4xl font-bold text-center">PHP + MySQL Search Query</h2>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($users as $user) { ?>
+                  <tr>
+                    <td><?= $user["name"]; ?></td>
+                    <td><?= $user["email"]; ?></td>
+                    <td><?= $user["address"] ?? "-----"; ?></td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+
         </div>
         
     </div>
